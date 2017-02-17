@@ -8,10 +8,10 @@ product = ARGV.first.to_i
 
 def find_product(set, product)
 	# Make this bit as efficient as possible.
-	needs = []
+	needs = {}
 	set.each do |number|
-		return true if needs.include? number
-		needs.push product - number
+		return true if needs[number]
+		needs[product - number] = true
 	end
 	return false
 end
